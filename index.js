@@ -1,10 +1,5 @@
 (function () {
     "use strict";
-
-    /**
-     * Initializes the dropdown menu interaction.
-     * Attaches event listeners to handle dropdown selection and content switching.
-     */
     function init() {
         console.log("in init");
 
