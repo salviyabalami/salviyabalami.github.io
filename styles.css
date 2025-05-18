@@ -1,0 +1,96 @@
+/*
+    Name: Salviya Balami
+    CS 132 Spring 2025
+    Date: April 6th, 2025
+
+    This is the styles.css page for my Interacive Portfolio. 
+    It is used by all of my HMTL pages to handle the general style and
+    aesthetic of the page to keep the same format across all pages.
+*/
+
+body {
+    font-family: "Roboto Flex", Verdana, sans-serif;
+    color: #e0f7fa;
+    background: linear-gradient(135deg, #2b2b2b, #005c97, #00c9ff);
+    margin: 0;
+}
+
+img {
+    flex: 1;
+    width: 100%;
+    height: auto;
+    border-radius: 20px;
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.3);
+}
+
+.logo img,
+.footer-bar img {
+    width: 50%;
+    min-width: 80px;
+    height: auto;
+    box-shadow: none;
+}
+
+.logo img {
+    max-width: 200px;
+}
+
+.footer-bar img {
+    max-width: 100px;
+}
+
+p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin: 10px 0 0 0;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    background-color: rgba(0, 40, 60, 0.85);
+    backdrop-filter: blur(4px);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+nav ul {
+    display: flex;
+    gap: 16px;
+    padding: 0;
+    margin: 0;
+}
+
+nav li {
+    list-style: none;
+}
+
+nav li a {
+    display: block;
+    padding: 20px 12px;
+    color: #e0f7fa;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    transition: background-color 0.2s ease, color 0.2s ease;
+    border-radius: 6px;
+}
+
+nav li a:hover {
+    background-color: rgba(0, 201, 255, 0.2);
+    color: #ffffff;
+    box-shadow: 0 0 8px rgba(0, 201, 255, 0.3);
+}
+
+.footer-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    height: 60px;
+}

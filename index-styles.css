@@ -1,0 +1,187 @@
+/*
+    Name: Salviya Balami
+    CS 132 Spring 2025
+    Date: May 6th, 2025
+
+    This is the index-styles.css page for my Interactive Portfolio. 
+    It is used by the index.html file to handle correct orientation for my text, images,
+    anchor styles, and the dropdown box.
+*/
+
+.introduction {
+    padding: 60px 5%;
+}
+
+.intro-wrapper,
+.education-wrapper,
+.projects-wrapper {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.projects-wrapper {
+    display: none;
+}
+
+.intro-wrapper img {
+    max-width: 300px;
+}
+
+.education-wrapper img {
+    max-width: 500px;
+}
+
+.projects-wrapper img {
+    max-width: 600px;
+}
+
+.intro-text,
+.education-text,
+.projects-text {
+    flex: 2;
+    max-width: 700px;
+    margin: auto;
+}
+
+.projects-text span {
+    font-style: italic;
+}
+
+.intro-text h1 {
+    font-size: 2.5rem;
+    font-weight: 400;
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.intro-text h1 span {
+    font-weight: 700;
+}
+
+.button-group {
+    margin-top: 20px;
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.btn {
+    padding: 12px 24px;
+    font-size: 1rem;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.2s ease;
+    background-color: rgba(0, 40, 60, 0.85);
+    color: #00c9ff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.btn:hover {
+    background-color: rgba(0, 201, 255, 0.2);
+}
+
+.dropdown {
+    min-width: 240px;
+    position: relative;
+    margin: 32px;
+}
+
+.dropdown * {
+    box-sizing: border-box;
+}
+
+.select {
+    margin-top: 100px;
+    background: rgba(0, 40, 60, 0.85);
+    color: #00c9ff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 2px rgba(0, 40, 60, 0.85) solid;
+    border-radius: 8px;
+    padding: 16px;
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+    transition: background 0.3s;
+}
+
+.select-clicked {
+    border: 2px #26489a solid;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.select:hover {
+    background-color: rgba(0, 201, 255, 0.2);
+}
+
+.caret {
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 6px solid #fff;
+    transition: 0.3s;
+}
+
+.caret-rotate {
+    transform: rotate(180deg);
+}
+
+.menu {
+    list-style: none;
+    padding: 4px 8px;
+    background: rgba(0, 40, 60, 1);
+    border: 2px rgba(0, 40, 60, 0.85) solid;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    color: #00c9ff;
+    position: absolute;
+    top: 48px;
+    left: 50%;
+    width: 100%;
+    transform: translateX(-50%);
+    z-index: 1;
+    opacity: 0;
+    overflow: hidden;
+    pointer-events: none;
+    transition: max-height 0.4s ease, opacity 0.4s ease;
+}
+
+.menu li {
+    padding: 11px 8px;
+    margin: 5px 0;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.menu li:hover,
+.active {
+    background-color: rgba(0, 201, 255, 0.2);
+}
+
+.menu-open {
+    max-height: 500px;
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.section-visible {
+    opacity: 1;
+    visibility: visible;
+    display: flex;
+    width: 100%;
+    position: relative;
+    transition: opacity 0.7s ease, visibility 0.7s ease;
+}
+
+.section-hidden {
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+    width: 100%;
+    transition: opacity 1s ease, visibility 1s ease;
+}

@@ -1,0 +1,4 @@
+﻿https://github.com/salviyabalami/cs132--sbalami-/tree/7e850631bd119670fee2dde7a84b7b2c4d639e2c/CP2-directory
+
+
+Note: I spoke to Professor Hovik, and she granted me an extension on this project due to my recent travel/family emergency. She also said that it was okay that I did not meet the JS requirement: “At least one of your callback (event handler) functions should change the document (DOM) in some way using element.appendChild(), element.removeChild(), or element.replaceChild()” because of my attendance to OH and working through solutions with her, along with class participation and willingness to ask questions.

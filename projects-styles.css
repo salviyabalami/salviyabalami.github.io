@@ -1,0 +1,25 @@
+/*
+    Name: Salviya Balami
+    CS 132 Spring 2025
+    Date: April 6th, 2025
+
+    This is the project-styles.css page for my Interactive Portflio page. 
+    It is used by the projects.html file, this page is currently under
+    construciton!
+*/
+.construction {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.construction h1 {
+    font-size: 2.6rem;
+}
+
+.construction img {
+    border-radius: 20px;
+    max-width: 300px;
+    width: 100%;
+    box-shadow: 0 0 12px rbgba(0, 0, 0 0.3);
+}
