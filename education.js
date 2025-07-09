@@ -1,5 +1,9 @@
 (function () {
     "use strict";
+
+    /**
+     * Initializes tab functionality:
+     */
     function initTabs() {
         const tabs = qsa('.tab');
         const tabContents = qsa('.tab-content');
@@ -15,7 +19,7 @@
                     content.classList.remove('visible');
                     content.classList.add('hidden');
                 });
-                
+
                 const targetTab = document.getElementById(targetId);
                 targetTab.classList.remove('hidden');
                 targetTab.classList.add('visible');
@@ -24,6 +28,11 @@
             });
         });
     }
+
+    /**
+     * Initializes a simple image carousel:
+     * Cycles through all images in the `.img-carousel` every 5 seconds.
+     */
     function initCarousel() {
         const images = qsa('.img-carousel img');
         let index = 0;
@@ -34,8 +43,8 @@
             images[index].classList.add('show');
         }, 5000);
     }
-    
-    function init(){
+
+    function init() {
         initTabs();
         initCarousel();
     }
