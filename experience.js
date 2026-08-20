@@ -2,6 +2,7 @@
     "use strict";
 
     const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const janeStreetLogo = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAARgAAAEYCAYAAACw8h0VAAAACXBIWXMAAAsSAAALEgHS3X78AABUWElEQVR42u2de3xcRZnAf+/OXZJcssnd3d7b3ZQkzbKpJYWyCFpR0V4/FKOKgoKygv4IPiIoqCD4U/AXD5RHFIRHQVBE/CLAg0BRQ0tLUSKhJSEtCdt0u5u00uSJ5N57/zxbL7f3C63ycxkX5/3o02OOe+ac73nPec77ft9VQkAAAOA7VL0AAABQHhJgAACA0JAAAABQGQkwAABAaUgAAACA0pAAAABQGhJgAACA0JAAAABQGQkwAABAaUgAAACA0pAAAABQGhJgAACA0JAAAABQGQkwAABAaUgAAACA0pAAAABQGhJgAACA0JAAAABQGQkwAABAaUgAAACA0pAAAABQGhJgAACA0JAAAABQGQkwAABAaUgAAACA0pAAAABQGhJgAACA0JAAAABQGQkwAABAaUgAAACA0pAAAABQGhJgAACA0JAAAABQGQkwAABAaUgAAACA0pAAAABQGhJgAACA0JAAAABQGQkwAABAaUgAAACA0pAAAABQGhJgAACA0JAAAABQGQkwAABAaUgAAACA0pAAAABQGhJgAACA0JAAAABQGQkwAABAaUgAAACA0pAAAABQGhJgAACA0JAAAABQGQkwAABAaUgAAACA0pAAAABQGhJgAACA0JAAAABQGQkwAABAaUgAAACA0pAAAABQGhJgAACA0JAAAABQGQkwAABAaUgAAACA0pAAAABQGhJgAACA0JAAAABQGQkwAABAaUgAAACA0pAAAABQGhJgAACA0JAAAABQGQkwAABAaUgAAACA0pAAAABQGhJgAACA0JAAAABQGQkwAABAaUgAAACA0pAAAABQGhJgAACA0JAAAABQGQkwAABAaUgAAACA0pAAAABQGhJgAACA0JAAAABQGQkwAABAaUgAAACA0pAAAABQGhJgAACA0JAAAABQGQkwAABAaUgAAACA0pAAAABQGhJgAACA0JAAAABQGQkwAABAaUgAAACA0pAAAABQGhJgAACA0JAAAABQGQkwAABAaUgAAACA0pAAAABQGhJgAACA0JAAAABQGQkwAABAaUgAAACA0pAAAABQGhJgAACA0JAAAABQGQkwAABAaUgAAACA0pAAAABQGhJgAACA0JAAAABQGQkwAABAaUgAAACA0pAAAABQGhJgAACA0JAAAABQGQkwAABAaUgAAACA0pAAAABQGhJgAACA0JAAAABQGQkwAABAaUgAAACA0pAAAABQGhJgAACA0JAAAABQGQkwAABAaUgAAACA0pAAAABQGhJgAACA0JAAAABQGQkwAABAaUgAAACA0pAAAABQGhJgAACA0JAAAABQGQkwAABAaUgAAACA0pAAAABQGhJgAACA0JAAAABQGQkwAABAaUgAAACA0pAAAABQGhJgAACA0JAAAABQGQkwAABAaUgAAACA0pAAAABQGhJgAACA0JAAAABQGQkwAABAaUgAAACA0pAAAABQGhJgAACA0JAAAABQGQkwAABAaUgAAACA0pAAAABQGhJgAACA0JAAAABQGQkwAABAaUgAAACA0pAAAABQGhJgAACA0JAAAABQGQkwAABAaUgAAACA0pAAAABQGhJgAACA0JAAAABQGQkwAABAaUgAAACA0pAAAABQGhJgAACA0JAAAABQGQkwAABAaUgAAACA0pAAAABQGhJgAACA0JAAAABQGQkwAABAaUgAAACA0pAAAABQGhJgAACA0JAAAABQGQkwAABAaUgAAACA0pAAAABQGhJgAACA0JAAAABQGQkwAABAaUgAAACA0pAAAABQGhJgAACA0JAAAABQGQkwAABAaUgAAACA0pAAAABQGhJgAACA0JAAAABQGQkwAABAaUgAAACA0pAAAABQGhJgAACA0JAAAABQGQkwAABAaUgAAACA0pAAAABQGhJgAACA0JAAAABQGQkwAABAaUgAAACA0pAAAABQGhJgAACA0JAAAABQGQkwAABAaUgAAACA0pAAAABQGhJgAACA0JAAAABQGQkwAABAaUgAAACA0pAAAABQGhJgAACA0JAAAABQGQkwAABAaUgAAACA0pAAAABQGhJgAACA0JAAAABQGQkwAABAaUgAAACA0pAAAABQGhJgAACA0JAAAABQGQkwAABAaUgAAACA0pAAAABQGhJgAACA0JAAAABQGQkwAABAaUgAAACA0pAAAABQGhJgAACA0JAAAABQGQkwAABAaUgAAACA0pAAAABQGhJgAACA0JAAAABQGQkwAABAaUgAAACA0pAAAABQGhJgAACA0JAAAABQGQkwAABAaUgAAACA0pAAAABQGhJgAACA0JAAAABQGQkwAABAaUgAAACA0pAAAABQGhJgAACA0JAAAABQGQkwAABAaUgAAACA0pAAAABQGhJgAACA0JAAAABQGQkwAABAaUgAAACA0pAAAABQGhJgAACA0JAAAABQGQkwAABAaUgAAACA0pAAAABQGhJgAACA0JAAAABQGQkwAABAaUgAAACA0pAAAABQGhJgAACA0JAAAABQGQkwAABAaUgAAACA0pAAAABQGhJgAACA0JAAAABQGQkwAABAaUgAAACA0pAAAABQGhJgAACA0JAAAABQGQkwAABAaUgAAACA0pAAAABQGhJgAACA0JAAAABQGQkwAABAaUgAAACA0pAAAABQGhJgAACA0JAAAABQGQkwAABAaUgAAACA0pAAAABQGhJgAACA0JAAAABQGQkwAABAaUgAAACA0pAAAABQGhJgAACA0JAAAABQGQkwAABAaUgAAACA0pAAAABQGhJgAACA0JAAAABQGQkwAABAaUgAAACA0pAAAABQGhJgAACA0JAAAABQGQkwAABAaUgAAACA0pAAAABQGhJgAACA0JAAAABQGQkwAABAaUgAAACA0pAAAABQGhJgAACA0JAAAABQGQkwAABAaUgAAACA0pAAAABQGhJgAACAAlNf/BxVPZ+2n0ZcAAAAASUVORK5CYII=";
 
     function applyExperienceContentUpdates() {
         const janeDetails = document.getElementById("experience-jane-details");
@@ -12,9 +13,6 @@
             if (summary) {
                 summary.textContent = "A multi-day program in New York centered on trading, quantitative reasoning, and insight into Jane Street’s interview process and culture.";
             }
-
-            const kicker = janeCard.querySelector(".experience-detail-kicker");
-            if (kicker) kicker.textContent = "What I explored";
 
             const points = janeCard.querySelector(".experience-points");
             if (points) {
@@ -34,49 +32,47 @@
             const visual = janeCard.querySelector(".jane-visual");
             if (visual) {
                 visual.innerHTML = `
-                    <div class="jane-brand-lockup" aria-label="Jane Street">
-                        <div class="jane-brand-name">Jane Street</div>
-                        <div class="jane-brand-program">FOCUS · New York · 2025</div>
+                    <div class="jane-logo-only">
+                        <img src="${janeStreetLogo}" alt="Jane Street circular logo">
+                        <span>FOCUS · NEW YORK · 2025</span>
                     </div>
                 `;
-
                 Object.assign(visual.style, {
                     position: "absolute",
                     inset: "0",
                     display: "grid",
                     placeItems: "center",
-                    background: "radial-gradient(circle at 50% 46%, rgba(0, 201, 255, .11), transparent 34%), linear-gradient(145deg, #06111a, #091b26)"
+                    background: "radial-gradient(circle at 50% 42%, rgba(0, 201, 255, .08), transparent 17rem), linear-gradient(145deg, #06131c, #081b26)"
                 });
 
-                const lockup = visual.querySelector(".jane-brand-lockup");
-                if (lockup) {
-                    Object.assign(lockup.style, {
+                const logoBlock = visual.querySelector(".jane-logo-only");
+                if (logoBlock) {
+                    Object.assign(logoBlock.style, {
                         display: "grid",
                         justifyItems: "center",
-                        gap: "14px",
-                        padding: "34px 42px",
+                        gap: "24px",
+                        padding: "36px",
                         textAlign: "center"
                     });
                 }
 
-                const name = visual.querySelector(".jane-brand-name");
-                if (name) {
-                    Object.assign(name.style, {
-                        color: "#eef9fc",
-                        fontSize: "clamp(2.8rem, 6vw, 5.4rem)",
-                        fontWeight: "650",
-                        lineHeight: ".95",
-                        letterSpacing: "-.055em"
+                const logo = visual.querySelector(".jane-logo-only img");
+                if (logo) {
+                    Object.assign(logo.style, {
+                        width: "clamp(150px, 42%, 230px)",
+                        height: "auto",
+                        display: "block",
+                        filter: "drop-shadow(0 0 24px rgba(0, 201, 255, .08))"
                     });
                 }
 
-                const program = visual.querySelector(".jane-brand-program");
-                if (program) {
-                    Object.assign(program.style, {
-                        color: "#7fdff6",
+                const caption = visual.querySelector(".jane-logo-only span");
+                if (caption) {
+                    Object.assign(caption.style, {
+                        color: "var(--accent-soft)",
                         fontSize: ".72rem",
                         fontWeight: "680",
-                        letterSpacing: ".12em",
+                        letterSpacing: ".16em",
                         textTransform: "uppercase"
                     });
                 }
@@ -100,22 +96,16 @@
 
             extraSlides.forEach(({ src, alt }) => {
                 if (rockwellStage.querySelector(`img[src="${src}"]`)) return;
-
                 const figure = document.createElement("figure");
                 figure.className = "experience-slide";
-
                 const image = document.createElement("img");
                 image.src = src;
                 image.alt = alt;
-
                 figure.appendChild(image);
                 rockwellStage.appendChild(figure);
             });
 
-            // Current slides are numbered as:
-            // 1 rooftop, 2 group, 3 office, 4 presentation, 5 intern group.
-            // Display them in the requested order: 1, 5, 3, 4, 2.
-            const requestedOrder = [
+            const desiredOrder = [
                 "images/experience-rockwell-rooftop.webp",
                 "images/experience-rockwell-intern-group.webp",
                 "images/experience-rockwell-office.webp",
@@ -123,14 +113,10 @@
                 "images/experience-rockwell-group.webp"
             ];
 
-            requestedOrder.forEach(src => {
-                const image = rockwellStage.querySelector(`img[src="${src}"]`);
-                const figure = image?.closest(".experience-slide");
-                if (figure) rockwellStage.appendChild(figure);
-            });
-
-            rockwellStage.querySelectorAll(".experience-slide").forEach((slide, index) => {
-                slide.classList.toggle("is-active", index === 0);
+            desiredOrder.forEach(src => {
+                const slide = Array.from(rockwellStage.querySelectorAll(".experience-slide"))
+                    .find(item => item.querySelector("img")?.getAttribute("src") === src);
+                if (slide) rockwellStage.appendChild(slide);
             });
         }
     }
@@ -139,7 +125,6 @@
         const button = card.querySelector(".experience-toggle");
         const details = card.querySelector(".experience-details");
         const actionLabel = card.querySelector(".experience-action-label");
-
         if (!button || !details) return;
 
         const isOpen = card.classList.contains("is-open");
@@ -160,12 +145,10 @@
             details.hidden = false;
             details.style.height = "0px";
             details.style.opacity = "0";
-
             requestAnimationFrame(() => {
                 details.style.height = `${details.scrollHeight}px`;
                 details.style.opacity = "1";
             });
-
             const finishOpen = event => {
                 if (event.propertyName !== "height") return;
                 details.style.height = "auto";
@@ -175,12 +158,10 @@
         } else {
             details.style.height = `${details.scrollHeight}px`;
             details.style.opacity = "1";
-
             requestAnimationFrame(() => {
                 details.style.height = "0px";
                 details.style.opacity = "0";
             });
-
             const finishClose = event => {
                 if (event.propertyName !== "height") return;
                 details.hidden = true;
@@ -192,12 +173,10 @@
 
     function initAccordions() {
         const cards = Array.from(document.querySelectorAll(".experience-card"));
-
         cards.forEach(card => {
             const button = card.querySelector(".experience-toggle");
             const details = card.querySelector(".experience-details");
             if (!button || !details) return;
-
             details.hidden = true;
             details.style.height = "0px";
             details.style.opacity = "0";
@@ -207,13 +186,7 @@
 
             button.addEventListener("click", () => {
                 const shouldOpen = !card.classList.contains("is-open");
-
-                if (shouldOpen) {
-                    cards.forEach(otherCard => {
-                        if (otherCard !== card) setExpanded(otherCard, false);
-                    });
-                }
-
+                if (shouldOpen) cards.forEach(other => other !== card && setExpanded(other, false));
                 setExpanded(card, shouldOpen);
             });
         });
@@ -225,10 +198,10 @@
             const previous = gallery.querySelector(".experience-gallery-prev");
             const next = gallery.querySelector(".experience-gallery-next");
             const progress = gallery.querySelector(".experience-gallery-progress");
-
             if (slides.length < 2 || !previous || !next || !progress) return;
 
             let currentIndex = 0;
+            progress.innerHTML = "";
             const dots = slides.map(() => {
                 const dot = document.createElement("span");
                 dot.className = "experience-gallery-dot";
@@ -239,14 +212,12 @@
 
             function showSlide(index) {
                 currentIndex = (index + slides.length) % slides.length;
-                slides.forEach((slide, slideIndex) => {
-                    const active = slideIndex === currentIndex;
+                slides.forEach((slide, i) => {
+                    const active = i === currentIndex;
                     slide.classList.toggle("is-active", active);
                     slide.setAttribute("aria-hidden", String(!active));
                 });
-                dots.forEach((dot, dotIndex) => {
-                    dot.classList.toggle("is-active", dotIndex === currentIndex);
-                });
+                dots.forEach((dot, i) => dot.classList.toggle("is-active", i === currentIndex));
             }
 
             previous.addEventListener("click", () => showSlide(currentIndex - 1));
@@ -290,7 +261,6 @@
                     entry.target.classList.add("is-visible");
                     return;
                 }
-
                 const rect = entry.boundingClientRect;
                 if (rect.bottom < 70 || rect.top > window.innerHeight - 70) {
                     entry.target.classList.remove("is-visible");
