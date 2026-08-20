@@ -78,7 +78,7 @@
     }
 
     function initActiveNavigation() {
-        const sectionIds = ["work", "experience", "about", "contact"];
+        const sectionIds = ["about", "experience", "projects", "contact"];
         const links = Array.from(document.querySelectorAll('.nav-links a[href^="#"]'));
         const sections = sectionIds
             .map(id => document.getElementById(id))
