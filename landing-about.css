@@ -84,6 +84,17 @@
     box-shadow: 0 12px 34px rgba(0, 0, 0, 0.3), 0 0 24px rgba(0, 201, 255, 0.06);
 }
 
+/* About is intentionally denser than the other sections so the section title
+   and photo story read together in the first viewport after navigation. */
+.about-section {
+    padding-top: 54px;
+}
+
+.about-section .section-heading {
+    row-gap: 16px;
+    margin-bottom: 24px;
+}
+
 .about-lead strong {
     color: #fff;
     font-weight: 680;
@@ -141,6 +152,14 @@
     .email-address {
         flex: 1;
         justify-content: center;
+    }
+
+    .about-section {
+        padding-top: 42px;
+    }
+
+    .about-section .section-heading {
+        margin-bottom: 20px;
     }
 }
 
