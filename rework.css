@@ -16,18 +16,21 @@
     display: block;
 }
 
-.hero-summary {
-    max-width: 560px;
-    margin-top: 30px;
-    font-size: clamp(1.05rem, 1.5vw, 1.28rem);
-}
-
 .hero-contact-row {
     display: flex;
     align-items: center;
     flex-wrap: wrap;
     gap: 10px;
-    margin-top: 32px;
+    margin-top: 38px;
+}
+
+.social-icon,
+.email-link {
+    border: 1px solid var(--line);
+    color: var(--text);
+    background: rgba(255, 255, 255, 0.025);
+    text-decoration: none;
+    transition: transform 180ms ease, border-color 180ms ease, background 180ms ease, color 180ms ease;
 }
 
 .social-icon {
@@ -35,12 +38,7 @@
     place-items: center;
     width: 48px;
     height: 48px;
-    border: 1px solid var(--line);
     border-radius: 13px;
-    color: var(--text);
-    background: rgba(255, 255, 255, 0.025);
-    text-decoration: none;
-    transition: transform 180ms ease, border-color 180ms ease, background 180ms ease, color 180ms ease;
 }
 
 .social-icon svg {
@@ -49,40 +47,67 @@
     fill: currentColor;
 }
 
-.social-icon:hover {
+.social-icon:hover,
+.email-link:hover {
     transform: translateY(-2px);
     color: var(--accent);
     border-color: var(--line-strong);
     background: rgba(0, 201, 255, 0.055);
 }
 
-.email-display {
+.email-link {
     display: inline-flex;
     align-items: center;
+    gap: 9px;
     min-height: 48px;
-    padding: 0 16px;
-    border: 1px solid var(--line);
+    padding: 0 15px;
     border-radius: 13px;
-    color: #b1c7cf;
-    background: rgba(255, 255, 255, 0.018);
     font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-    font-size: 0.78rem;
-    letter-spacing: -0.01em;
+    font-size: 0.76rem;
+    letter-spacing: -0.015em;
 }
 
-.email-display span,
-.contact-email span {
+.email-link svg {
+    width: 18px;
+    height: 18px;
+    flex: 0 0 auto;
+    fill: currentColor;
+}
+
+.email-arrow {
     color: var(--accent-soft);
+    transition: transform 180ms ease;
+}
+
+.email-link:hover .email-arrow {
+    transform: translate(2px, -2px);
 }
 
 .hero-visual {
-    width: min(100%, 390px);
+    width: min(100%, 410px);
 }
 
 .portrait-frame img {
     aspect-ratio: 4 / 5;
     object-position: center 24%;
-    filter: saturate(0.93) contrast(1.03);
+    filter: none;
+}
+
+.portrait-tag-top {
+    top: 30px;
+    left: -34px;
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    padding: 11px 14px;
+    font-size: 0.72rem;
+    letter-spacing: 0.025em;
+}
+
+.portrait-tag-top .status-dot {
+    width: 6px;
+    height: 6px;
+    flex: 0 0 auto;
 }
 
 .about-section {
@@ -100,6 +125,22 @@
     border-block: 1px solid rgba(255, 255, 255, 0.045);
     background: rgba(255, 255, 255, 0.012);
     z-index: -1;
+}
+
+.about-lead strong {
+    color: #ffffff;
+    font-weight: 650;
+}
+
+.about-lead strong:first-child {
+    color: transparent;
+    background: linear-gradient(105deg, #ffffff 5%, var(--accent-soft) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+}
+
+.about-facts div:last-child strong {
+    color: var(--accent-soft);
 }
 
 .experience-section::before {
@@ -246,14 +287,25 @@
     font-weight: 550;
 }
 
-.contact-email {
+.contact-email-link {
     position: relative;
     z-index: 1;
-    display: inline-block;
-    margin: 24px 0 0;
-    color: #c0d2d8;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 24px;
+    color: var(--accent-soft);
     font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
     font-size: clamp(0.82rem, 1.4vw, 1rem);
+    text-decoration: none;
+}
+
+.contact-email-link span {
+    transition: transform 180ms ease;
+}
+
+.contact-email-link:hover span {
+    transform: translate(3px, -3px);
 }
 
 @media (max-width: 980px) {
@@ -263,6 +315,10 @@
 
     .hero h1 {
         font-size: clamp(4.5rem, 13vw, 8rem);
+    }
+
+    .portrait-tag-top {
+        left: -18px;
     }
 }
 
@@ -275,13 +331,17 @@
         align-items: stretch;
     }
 
-    .email-display {
-        width: 100%;
+    .email-link {
         justify-content: center;
     }
 
     .hero-visual {
         width: min(84vw, 360px);
+    }
+
+    .portrait-tag-top {
+        top: 18px;
+        left: -10px;
     }
 
     .model-card-main {
@@ -314,10 +374,16 @@
         height: 46px;
     }
 
-    .email-display {
+    .email-link {
+        width: 100%;
         min-height: 46px;
         padding-inline: 12px;
-        font-size: 0.69rem;
+        font-size: 0.72rem;
+    }
+
+    .portrait-tag-top {
+        max-width: calc(100% - 12px);
+        font-size: 0.64rem;
     }
 
     .ensemble-line {
