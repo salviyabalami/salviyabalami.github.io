@@ -9,7 +9,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,300..800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="rework.css">
+    <link rel="stylesheet" href="landing-about.css">
     <script defer src="index.js"></script>
+    <script defer src="landing-about.js"></script>
     <title>Salviya Balami — Portfolio</title>
 </head>
 <body>
@@ -48,18 +50,20 @@
                     <a class="social-icon" href="https://www.linkedin.com/in/salviya-balami-36004b28a" target="_blank" rel="noreferrer" aria-label="LinkedIn">
                         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5.34 3.5a2.34 2.34 0 1 1 0 4.68 2.34 2.34 0 0 1 0-4.68ZM3.31 9.8h4.06V21H3.31V9.8Zm6.6 0h3.89v1.53h.05c.54-1.03 1.87-2.12 3.85-2.12 4.12 0 4.88 2.71 4.88 6.24V21h-4.05v-4.92c0-1.17-.02-2.68-1.63-2.68-1.64 0-1.89 1.28-1.89 2.6v5h-4.05V9.8Z"/></svg>
                     </a>
-                    <a class="email-link" href="mailto:sbalami@caltech.edu" aria-label="Email Salviya at sbalami@caltech.edu">
-                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.75 5.5h16.5A1.75 1.75 0 0 1 22 7.25v9.5a1.75 1.75 0 0 1-1.75 1.75H3.75A1.75 1.75 0 0 1 2 16.75v-9.5A1.75 1.75 0 0 1 3.75 5.5Zm.17 1.5 8.08 5.67L20.08 7H3.92Zm16.58 1.54-8.07 5.66a.75.75 0 0 1-.86 0L3.5 8.54v8.21c0 .14.11.25.25.25h16.5a.25.25 0 0 0 .25-.25V8.54Z"/></svg>
-                        <span>sbalami@caltech.edu</span>
-                        <span class="email-arrow">↗</span>
-                    </a>
+                    <div class="email-chip">
+                        <a class="email-address" href="mailto:sbalami@caltech.edu">sbalami@caltech.edu</a>
+                        <button class="copy-email" type="button" data-email="sbalami@caltech.edu" aria-label="Copy email address">
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 7.25A2.25 2.25 0 0 1 10.25 5h7.5A2.25 2.25 0 0 1 20 7.25v7.5A2.25 2.25 0 0 1 17.75 17h-7.5A2.25 2.25 0 0 1 8 14.75v-7.5Zm2.25-.75a.75.75 0 0 0-.75.75v7.5c0 .41.34.75.75.75h7.5a.75.75 0 0 0 .75-.75v-7.5a.75.75 0 0 0-.75-.75h-7.5ZM4 9.25A2.25 2.25 0 0 1 6.25 7H7v1.5h-.75a.75.75 0 0 0-.75.75v7.5c0 .41.34.75.75.75h7.5a.75.75 0 0 0 .75-.75V16H16v.75A2.25 2.25 0 0 1 13.75 19h-7.5A2.25 2.25 0 0 1 4 16.75v-7.5Z"/></svg>
+                            <span class="copy-label">Copy</span>
+                        </button>
+                    </div>
                 </div>
             </div>
 
             <div class="hero-visual reveal" data-delay="1">
                 <div class="portrait-frame">
                     <div class="portrait-glow"></div>
-                    <img src="images/salviya-headshot-v2.webp" alt="Portrait of Salviya Balami">
+                    <img src="images/salviya-headshot.jpg" alt="Portrait of Salviya Balami">
                     <div class="portrait-tag portrait-tag-top"><span class="status-dot"></span> Computer Science @ Caltech</div>
                 </div>
             </div>
@@ -80,19 +84,19 @@
                 <div class="carousel reveal" aria-roledescription="carousel" aria-label="Photos from Salviya's life and experiences">
                     <div class="carousel-track">
                         <figure class="carousel-slide is-active">
-                            <img src="images/about-caltech-first-day.webp" alt="Salviya with friends at Caltech">
+                            <img src="images/about-caltech-first-day.webp" alt="Salviya with friends at Caltech on the first day of class">
                         </figure>
                         <figure class="carousel-slide">
-                            <img src="images/about-basketball-action.webp" alt="Salviya playing basketball for Caltech">
-                        </figure>
-                        <figure class="carousel-slide">
-                            <img src="images/about-caltech-friends.webp" alt="Salviya with friends">
+                            <img src="images/about-caltech-friends.webp" alt="Salviya with friends at Caltech">
                         </figure>
                         <figure class="carousel-slide">
                             <img src="images/about-graduation.webp" alt="Salviya at graduation with friends">
                         </figure>
                         <figure class="carousel-slide">
-                            <img src="images/about-basketball.webp" alt="Salviya competing for Caltech Men's Basketball">
+                            <img src="images/about-basketball.webp" alt="Salviya playing basketball for Caltech">
+                        </figure>
+                        <figure class="carousel-slide">
+                            <img src="images/about-basketball-action.webp" alt="Salviya in game action for Caltech Men's Basketball">
                         </figure>
                     </div>
                     <div class="carousel-controls">
@@ -103,12 +107,12 @@
                 </div>
 
                 <div class="about-copy reveal" data-delay="1">
-                    <p class="about-lead">I’m a <strong>Computer Science student at Caltech</strong> who likes <strong>building</strong>, <strong>learning quickly</strong>, and working on <strong>hard technical problems with good people.</strong></p>
+                    <p class="about-lead">I’m a <strong class="identity-highlight">Computer Science student at Caltech</strong> who likes building, learning quickly, and working on <strong>hard technical problems with good people.</strong></p>
                     <p>My experience has taken me through cloud infrastructure, robotics research, machine learning, and collaborative technical programs. Outside of class and engineering, I compete on the Caltech Men’s Basketball team.</p>
                     <div class="about-facts">
                         <div><span>School</span><strong>Caltech</strong></div>
                         <div><span>Studying</span><strong>Computer Science</strong></div>
-                        <div><span>On the court</span><strong>Caltech Men’s Basketball</strong></div>
+                        <div><span>Athletics</span><strong>Caltech Men’s Basketball</strong></div>
                     </div>
                 </div>
             </div>
@@ -123,10 +127,7 @@
             <div class="timeline">
                 <article class="timeline-item reveal">
                     <div class="timeline-marker"><span></span></div>
-                    <div class="timeline-meta">
-                        <p>2026</p>
-                        <span>Milwaukee, WI</span>
-                    </div>
+                    <div class="timeline-meta"><p>2026</p><span>Milwaukee, WI</span></div>
                     <div class="timeline-content">
                         <p class="timeline-label">IT Intern · Cloud Enablement</p>
                         <h3>Rockwell Automation</h3>
@@ -136,10 +137,7 @@
 
                 <article class="timeline-item reveal">
                     <div class="timeline-marker"><span></span></div>
-                    <div class="timeline-meta">
-                        <p>2025</p>
-                        <span>Minneapolis, MN</span>
-                    </div>
+                    <div class="timeline-meta"><p>2025</p><span>Minneapolis, MN</span></div>
                     <div class="timeline-content">
                         <p class="timeline-label">Undergraduate Research Intern · NSF REU</p>
                         <h3>University of Minnesota · RPM Lab</h3>
@@ -149,10 +147,7 @@
 
                 <article class="timeline-item reveal">
                     <div class="timeline-marker"><span></span></div>
-                    <div class="timeline-meta">
-                        <p>2025</p>
-                        <span>New York, NY</span>
-                    </div>
+                    <div class="timeline-meta"><p>2025</p><span>New York, NY</span></div>
                     <div class="timeline-content">
                         <p class="timeline-label">Fellow</p>
                         <h3>Jane Street FOCUS</h3>
@@ -173,10 +168,7 @@
                 <article class="project-card reveal">
                     <div class="project-visual ml-visual" aria-hidden="true">
                         <div class="model-grid"></div>
-                        <div class="model-card model-card-main">
-                            <span>DenseNet121</span>
-                            <strong>Multi-label classification</strong>
-                        </div>
+                        <div class="model-card model-card-main"><span>DenseNet121</span><strong>Multi-label classification</strong></div>
                         <div class="model-card model-card-small model-a">AUC</div>
                         <div class="model-card model-card-small model-b">F1</div>
                         <div class="model-card model-card-small model-c">Recall</div>
@@ -186,12 +178,7 @@
                         <p class="project-kicker">Computer Vision · Deep Learning</p>
                         <h3>Medical Chest X-Ray Disease Classification</h3>
                         <p>Built an ensemble learning framework for multi-label chest X-ray classification using DenseNet121, transfer learning, weighted model averaging, and automated evaluation.</p>
-                        <ul class="tag-list" aria-label="Technologies">
-                            <li>Python</li>
-                            <li>PyTorch</li>
-                            <li>DenseNet121</li>
-                            <li>Computer Vision</li>
-                        </ul>
+                        <ul class="tag-list" aria-label="Technologies"><li>Python</li><li>PyTorch</li><li>DenseNet121</li><li>Computer Vision</li></ul>
                     </div>
                 </article>
 
@@ -200,9 +187,7 @@
                         <div class="ensemble-node node-xgb">XGBoost</div>
                         <div class="ensemble-node node-lgbm">LightGBM</div>
                         <div class="ensemble-node node-cat">CatBoost</div>
-                        <div class="ensemble-line line-a"></div>
-                        <div class="ensemble-line line-b"></div>
-                        <div class="ensemble-line line-c"></div>
+                        <div class="ensemble-line line-a"></div><div class="ensemble-line line-b"></div><div class="ensemble-line line-c"></div>
                         <div class="ensemble-node node-meta">Meta Learner</div>
                         <div class="ensemble-score">0.8375 <span>OOF AUC</span></div>
                     </div>
@@ -211,12 +196,7 @@
                         <p class="project-kicker">Machine Learning · Ensembles</p>
                         <h3>Music Popularity Prediction</h3>
                         <p>Developed and stacked gradient-boosting models with feature engineering, class-imbalance handling, grid search, and stratified cross-validation to improve generalization.</p>
-                        <ul class="tag-list" aria-label="Technologies">
-                            <li>Python</li>
-                            <li>XGBoost</li>
-                            <li>LightGBM</li>
-                            <li>CatBoost</li>
-                        </ul>
+                        <ul class="tag-list" aria-label="Technologies"><li>Python</li><li>XGBoost</li><li>LightGBM</li><li>CatBoost</li></ul>
                     </div>
                 </article>
             </div>
@@ -232,7 +212,12 @@
                 <p class="eyebrow">04 / Connect</p>
                 <h2>Let’s connect.</h2>
                 <p>If you want to talk about an opportunity, a project, or just something interesting in computer science, feel free to reach out.</p>
-                <a class="contact-email-link" href="mailto:sbalami@caltech.edu">sbalami@caltech.edu <span>↗</span></a>
+                <div class="contact-email-row">
+                    <a class="contact-email-address" href="mailto:sbalami@caltech.edu">sbalami@caltech.edu</a>
+                    <button class="copy-email copy-email-contact" type="button" data-email="sbalami@caltech.edu" aria-label="Copy email address">
+                        <span class="copy-label">Copy email</span>
+                    </button>
+                </div>
                 <div class="contact-links">
                     <a href="https://github.com/salviyabalami" target="_blank" rel="noreferrer">GitHub <span>↗</span></a>
                     <a href="https://www.linkedin.com/in/salviya-balami-36004b28a" target="_blank" rel="noreferrer">LinkedIn <span>↗</span></a>
