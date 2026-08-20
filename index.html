@@ -10,8 +10,10 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="rework.css">
     <link rel="stylesheet" href="landing-about.css">
+    <link rel="stylesheet" href="experience.css">
     <script defer src="index.js"></script>
     <script defer src="landing-about.js"></script>
+    <script defer src="experience.js"></script>
     <title>Salviya Balami — Portfolio</title>
 </head>
 <body>
@@ -124,34 +126,143 @@
                 <h2>Where I’ve worked and learned.</h2>
             </div>
 
-            <div class="timeline">
-                <article class="timeline-item reveal">
-                    <div class="timeline-marker"><span></span></div>
-                    <div class="timeline-meta"><p>2026</p><span>Milwaukee, WI</span></div>
-                    <div class="timeline-content">
-                        <p class="timeline-label">IT Intern · Cloud Enablement</p>
-                        <h3>Rockwell Automation</h3>
-                        <p>Built automated Terraform drift detection across 40+ Azure cloud environments and contributed to a 30+ member AI Innovation Tiger Team evaluating multi-agent architectures and technical tradeoffs.</p>
+            <div class="experience-timeline">
+                <article class="experience-entry reveal">
+                    <div class="experience-meta">
+                        <span class="experience-year">2026</span>
+                        <span class="experience-location">Milwaukee, WI</span>
+                    </div>
+                    <div class="experience-rail" aria-hidden="true"><span class="experience-marker"></span></div>
+
+                    <div class="experience-card">
+                        <button class="experience-toggle" type="button" aria-expanded="false" aria-controls="experience-rockwell-details">
+                            <div class="experience-heading">
+                                <p class="experience-role">IT Intern · Cloud Enablement</p>
+                                <h3>Rockwell Automation</h3>
+                                <p class="experience-summary">Built cloud-governance tooling across 40+ Azure environments and explored practical multi-agent AI workflows.</p>
+                            </div>
+                            <span class="experience-action"><span class="experience-action-label">Explore</span><svg class="experience-chevron" viewBox="0 0 16 16" aria-hidden="true"><path d="m3 6 5 5 5-5"/></svg></span>
+                        </button>
+
+                        <div class="experience-details" id="experience-rockwell-details">
+                            <div class="experience-detail-grid">
+                                <div class="experience-gallery" data-experience-gallery aria-label="Rockwell Automation photos">
+                                    <div class="experience-gallery-stage">
+                                        <figure class="experience-slide is-active"><img src="images/experience-rockwell-rooftop.webp" alt="Salviya with fellow Rockwell Automation interns at an event in Milwaukee"></figure>
+                                        <figure class="experience-slide"><img src="images/experience-rockwell-group.webp" alt="Rockwell Automation intern group outside the Allen-Bradley clock tower"></figure>
+                                        <figure class="experience-slide"><img src="images/experience-rockwell-office.webp" alt="Rockwell Automation intern group in Milwaukee"></figure>
+                                    </div>
+                                    <div class="experience-gallery-controls">
+                                        <button class="experience-gallery-button experience-gallery-prev" type="button" aria-label="Previous Rockwell photo">←</button>
+                                        <div class="experience-gallery-progress" aria-hidden="true"></div>
+                                        <button class="experience-gallery-button experience-gallery-next" type="button" aria-label="Next Rockwell photo">→</button>
+                                    </div>
+                                </div>
+
+                                <div class="experience-detail-copy">
+                                    <p class="experience-detail-kicker">What I worked on</p>
+                                    <ul class="experience-points">
+                                        <li><strong>Terraform drift detection.</strong> Automated comparisons between infrastructure-as-code and deployed Azure resources across 40+ cloud environments, while filtering execution failures and non-actionable differences.</li>
+                                        <li><strong>Actionable remediation.</strong> Connected real drift findings to GitHub-based workflows that turn discrepancies into issues and remediation pull requests, reducing manual investigation for cloud engineers.</li>
+                                        <li><strong>AI Innovation Tiger Team.</strong> Worked on a 30+ member cross-functional team evaluating multi-agent architectures for retrieving and analyzing engineering designs, documenting tradeoffs, and demonstrating MVPs to stakeholders.</li>
+                                    </ul>
+                                    <div class="experience-tech" aria-label="Rockwell technologies"><span>Terraform</span><span>Azure</span><span>GitHub Actions</span><span>Agentic Workflows</span></div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </article>
 
-                <article class="timeline-item reveal">
-                    <div class="timeline-marker"><span></span></div>
-                    <div class="timeline-meta"><p>2025</p><span>Minneapolis, MN</span></div>
-                    <div class="timeline-content">
-                        <p class="timeline-label">Undergraduate Research Intern · NSF REU</p>
-                        <h3>University of Minnesota · RPM Lab</h3>
-                        <p>Developed ROS-based teleoperation and data-collection systems for a scaled Boston Dynamics SPOT robotic arm and collected hundreds of demonstrations for imitation-learning research.</p>
+                <article class="experience-entry reveal">
+                    <div class="experience-meta">
+                        <span class="experience-year">2025</span>
+                        <span class="experience-location">Minneapolis, MN</span>
+                    </div>
+                    <div class="experience-rail" aria-hidden="true"><span class="experience-marker"></span></div>
+
+                    <div class="experience-card">
+                        <button class="experience-toggle" type="button" aria-expanded="false" aria-controls="experience-umn-details">
+                            <div class="experience-heading">
+                                <p class="experience-role">Undergraduate Research Intern · NSF REU</p>
+                                <h3>University of Minnesota · RPM Lab</h3>
+                                <p class="experience-summary">Built real-time teleoperation and data-collection tooling for a scaled Boston Dynamics SPOT arm.</p>
+                            </div>
+                            <span class="experience-action"><span class="experience-action-label">Explore</span><svg class="experience-chevron" viewBox="0 0 16 16" aria-hidden="true"><path d="m3 6 5 5 5-5"/></svg></span>
+                        </button>
+
+                        <div class="experience-details" id="experience-umn-details">
+                            <div class="experience-detail-grid">
+                                <div class="experience-gallery" data-experience-gallery aria-label="University of Minnesota robotics research photos">
+                                    <div class="experience-gallery-stage">
+                                        <figure class="experience-slide is-active"><img src="images/experience-umn-poster.webp" alt="Salviya presenting his SPOT teleoperation research poster"></figure>
+                                        <figure class="experience-slide"><img src="images/experience-umn-teleop.webp" alt="Salviya controlling a Boston Dynamics SPOT robot during teleoperation research"></figure>
+                                        <figure class="experience-slide"><img src="images/experience-umn-mentor.webp" alt="Salviya with research mentors in front of his robotics research poster"></figure>
+                                    </div>
+                                    <div class="experience-gallery-controls">
+                                        <button class="experience-gallery-button experience-gallery-prev" type="button" aria-label="Previous research photo">←</button>
+                                        <div class="experience-gallery-progress" aria-hidden="true"></div>
+                                        <button class="experience-gallery-button experience-gallery-next" type="button" aria-label="Next research photo">→</button>
+                                    </div>
+                                </div>
+
+                                <div class="experience-detail-copy">
+                                    <p class="experience-detail-kicker">What I worked on</p>
+                                    <ul class="experience-points">
+                                        <li><strong>Real-time teleoperation.</strong> Built Python and ROS tooling that translated tablet control into joint commands for a scaled SPOT robotic arm during pick-and-place tasks.</li>
+                                        <li><strong>Hardware integration.</strong> Worked with Dynamixel servos, embedded hardware, CAD, and 3D-printed components to assemble and improve a low-cost manipulation platform.</li>
+                                        <li><strong>Imitation-learning data.</strong> Collected hundreds of teleoperation demonstrations containing visual observations and joint actions for downstream learning experiments, then presented the work in a research poster.</li>
+                                    </ul>
+                                    <div class="experience-tech" aria-label="Research technologies"><span>Python</span><span>ROS</span><span>Dynamixel</span><span>CAD</span><span>Imitation Learning</span></div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </article>
 
-                <article class="timeline-item reveal">
-                    <div class="timeline-marker"><span></span></div>
-                    <div class="timeline-meta"><p>2025</p><span>New York, NY</span></div>
-                    <div class="timeline-content">
-                        <p class="timeline-label">Fellow</p>
-                        <h3>Jane Street FOCUS</h3>
-                        <p>Worked through collaborative problem solving, trading fundamentals, OCaml programming, market design discussions, and quantitative estimation challenges.</p>
+                <article class="experience-entry reveal">
+                    <div class="experience-meta">
+                        <span class="experience-year">2025</span>
+                        <span class="experience-location">New York, NY</span>
+                    </div>
+                    <div class="experience-rail" aria-hidden="true"><span class="experience-marker"></span></div>
+
+                    <div class="experience-card">
+                        <button class="experience-toggle" type="button" aria-expanded="false" aria-controls="experience-jane-details">
+                            <div class="experience-heading">
+                                <p class="experience-role">FOCUS Fellow</p>
+                                <h3>Jane Street</h3>
+                                <p class="experience-summary">A week in New York centered on trading, quantitative reasoning, OCaml, and collaborative problem solving.</p>
+                            </div>
+                            <span class="experience-action"><span class="experience-action-label">Explore</span><svg class="experience-chevron" viewBox="0 0 16 16" aria-hidden="true"><path d="m3 6 5 5 5-5"/></svg></span>
+                        </button>
+
+                        <div class="experience-details" id="experience-jane-details">
+                            <div class="experience-detail-grid">
+                                <div class="experience-gallery">
+                                    <div class="experience-gallery-stage" role="img" aria-label="Abstract New York grid visual for Jane Street FOCUS">
+                                        <div class="jane-visual">
+                                            <div class="jane-grid" aria-hidden="true"></div>
+                                            <span class="jane-pin" aria-hidden="true"></span>
+                                            <div class="jane-card">
+                                                <small>New York · 2025</small>
+                                                <strong>Jane Street</strong>
+                                                <span>FOCUS / 40.7° N · 74.0° W</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="experience-detail-copy">
+                                    <p class="experience-detail-kicker">What I explored</p>
+                                    <ul class="experience-points">
+                                        <li><strong>Trading and markets.</strong> Worked through trading fundamentals, market-design ideas, and exercises built around decision-making under uncertainty.</li>
+                                        <li><strong>Functional programming.</strong> Used OCaml in technical sessions and gained exposure to the programming style and tools used in Jane Street’s environment.</li>
+                                        <li><strong>Quantitative problem solving.</strong> Practiced estimation, structured reasoning, and collaborative problem solving with other participants and Jane Street engineers.</li>
+                                    </ul>
+                                    <div class="experience-tech" aria-label="Jane Street topics"><span>OCaml</span><span>Markets</span><span>Quantitative Reasoning</span><span>Problem Solving</span></div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </article>
             </div>
