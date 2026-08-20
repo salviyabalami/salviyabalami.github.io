@@ -139,6 +139,105 @@
     min-height: 42px;
 }
 
+/* Scroll-driven motion is intentionally scoped to the two sections that have
+   been finalized so far. Later sections keep their existing behavior. */
+.hero .motion-reveal,
+.about-section .motion-reveal {
+    --motion-delay: 0ms;
+    opacity: 0 !important;
+    filter: blur(4px);
+    will-change: opacity, transform, filter;
+    transition:
+        opacity 620ms cubic-bezier(0.22, 1, 0.36, 1) var(--motion-delay),
+        transform 720ms cubic-bezier(0.22, 1, 0.36, 1) var(--motion-delay),
+        filter 620ms ease var(--motion-delay);
+}
+
+.hero .motion-reveal[data-motion="up"],
+.about-section .motion-reveal[data-motion="up"] {
+    transform: translate3d(0, 30px, 0);
+}
+
+.hero .motion-reveal[data-motion="right"],
+.about-section .motion-reveal[data-motion="right"] {
+    transform: translate3d(42px, 14px, 0) scale(0.985);
+}
+
+.hero .motion-reveal[data-motion="left"],
+.about-section .motion-reveal[data-motion="left"] {
+    transform: translate3d(-42px, 14px, 0) scale(0.985);
+}
+
+.hero .motion-reveal.is-visible,
+.about-section .motion-reveal.is-visible {
+    opacity: 1 !important;
+    filter: blur(0);
+    transform: translate3d(0, 0, 0) scale(1);
+}
+
+/* A small internal stagger makes the opening feel assembled rather than
+   moving as one large block. */
+.hero-copy.motion-reveal h1,
+.hero-copy.motion-reveal .hero-contact-row {
+    opacity: 0;
+    transform: translateY(16px);
+    transition:
+        opacity 520ms cubic-bezier(0.22, 1, 0.36, 1),
+        transform 620ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.hero-copy.motion-reveal .hero-contact-row {
+    transition-delay: 110ms;
+}
+
+.hero-copy.motion-reveal.is-visible h1,
+.hero-copy.motion-reveal.is-visible .hero-contact-row {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.about-copy.motion-reveal > .about-lead,
+.about-copy.motion-reveal > .about-lead + p,
+.about-copy.motion-reveal .about-facts > div {
+    opacity: 0;
+    transform: translateY(14px);
+    transition:
+        opacity 500ms cubic-bezier(0.22, 1, 0.36, 1),
+        transform 600ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.about-copy.motion-reveal > .about-lead + p {
+    transition-delay: 80ms;
+}
+
+.about-copy.motion-reveal .about-facts > div:nth-child(1) {
+    transition-delay: 150ms;
+}
+
+.about-copy.motion-reveal .about-facts > div:nth-child(2) {
+    transition-delay: 210ms;
+}
+
+.about-copy.motion-reveal .about-facts > div:nth-child(3) {
+    transition-delay: 270ms;
+}
+
+.about-copy.motion-reveal.is-visible > .about-lead,
+.about-copy.motion-reveal.is-visible > .about-lead + p,
+.about-copy.motion-reveal.is-visible .about-facts > div {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.carousel.motion-reveal .carousel-track {
+    transform: scale(1.018);
+    transition: transform 900ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.carousel.motion-reveal.is-visible .carousel-track {
+    transform: scale(1);
+}
+
 @media (max-width: 760px) {
     .portrait-tag-top {
         left: -8px;
@@ -161,6 +260,16 @@
     .about-section .section-heading {
         margin-bottom: 20px;
     }
+
+    .hero .motion-reveal[data-motion="right"],
+    .about-section .motion-reveal[data-motion="right"] {
+        transform: translate3d(24px, 12px, 0) scale(0.99);
+    }
+
+    .hero .motion-reveal[data-motion="left"],
+    .about-section .motion-reveal[data-motion="left"] {
+        transform: translate3d(-24px, 12px, 0) scale(0.99);
+    }
 }
 
 @media (max-width: 470px) {
@@ -175,5 +284,21 @@
     .contact-email-address {
         flex: 1;
         text-align: center;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .hero .motion-reveal,
+    .about-section .motion-reveal,
+    .hero-copy.motion-reveal h1,
+    .hero-copy.motion-reveal .hero-contact-row,
+    .about-copy.motion-reveal > .about-lead,
+    .about-copy.motion-reveal > .about-lead + p,
+    .about-copy.motion-reveal .about-facts > div,
+    .carousel.motion-reveal .carousel-track {
+        opacity: 1 !important;
+        filter: none !important;
+        transform: none !important;
+        transition: none !important;
     }
 }
