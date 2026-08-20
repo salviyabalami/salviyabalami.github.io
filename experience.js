@@ -34,45 +34,51 @@
             const visual = janeCard.querySelector(".jane-visual");
             if (visual) {
                 visual.innerHTML = `
-                    <img class="jane-map-image" src="images/experience-jane-map.webp" alt="Top-down map of Manhattan and surrounding New York boroughs">
-                    <div class="jane-map-shade" aria-hidden="true"></div>
-                    <div class="jane-card jane-card-map">
-                        <small>New York · 2025</small>
-                        <strong>Jane Street</strong>
-                        <span>FOCUS · Multi-day program</span>
+                    <div class="jane-brand-lockup" aria-label="Jane Street">
+                        <div class="jane-brand-name">Jane Street</div>
+                        <div class="jane-brand-program">FOCUS · New York · 2025</div>
                     </div>
                 `;
 
-                visual.style.position = "absolute";
-                visual.style.inset = "0";
+                Object.assign(visual.style, {
+                    position: "absolute",
+                    inset: "0",
+                    display: "grid",
+                    placeItems: "center",
+                    background: "radial-gradient(circle at 50% 46%, rgba(0, 201, 255, .11), transparent 34%), linear-gradient(145deg, #06111a, #091b26)"
+                });
 
-                const map = visual.querySelector(".jane-map-image");
-                if (map) {
-                    Object.assign(map.style, {
-                        width: "100%",
-                        height: "100%",
-                        objectFit: "cover",
-                        objectPosition: "center",
-                        filter: "grayscale(1) contrast(1.08) brightness(.62) sepia(.14) hue-rotate(145deg) saturate(.9)"
+                const lockup = visual.querySelector(".jane-brand-lockup");
+                if (lockup) {
+                    Object.assign(lockup.style, {
+                        display: "grid",
+                        justifyItems: "center",
+                        gap: "14px",
+                        padding: "34px 42px",
+                        textAlign: "center"
                     });
                 }
 
-                const shade = visual.querySelector(".jane-map-shade");
-                if (shade) {
-                    Object.assign(shade.style, {
-                        position: "absolute",
-                        inset: "0",
-                        background: "linear-gradient(135deg, rgba(3, 11, 17, .16), rgba(3, 13, 20, .58)), radial-gradient(circle at 66% 38%, rgba(0, 201, 255, .18), transparent 24rem)",
-                        pointerEvents: "none"
+                const name = visual.querySelector(".jane-brand-name");
+                if (name) {
+                    Object.assign(name.style, {
+                        color: "#eef9fc",
+                        fontSize: "clamp(2.8rem, 6vw, 5.4rem)",
+                        fontWeight: "650",
+                        lineHeight: ".95",
+                        letterSpacing: "-.055em"
                     });
                 }
 
-                const card = visual.querySelector(".jane-card-map");
-                if (card) {
-                    card.style.zIndex = "2";
-                    card.style.backdropFilter = "blur(12px)";
-                    card.style.webkitBackdropFilter = "blur(12px)";
-                    card.style.background = "rgba(4, 13, 20, .82)";
+                const program = visual.querySelector(".jane-brand-program");
+                if (program) {
+                    Object.assign(program.style, {
+                        color: "#7fdff6",
+                        fontSize: ".72rem",
+                        fontWeight: "680",
+                        letterSpacing: ".12em",
+                        textTransform: "uppercase"
+                    });
                 }
             }
         }
@@ -104,6 +110,27 @@
 
                 figure.appendChild(image);
                 rockwellStage.appendChild(figure);
+            });
+
+            // Current slides are numbered as:
+            // 1 rooftop, 2 group, 3 office, 4 presentation, 5 intern group.
+            // Display them in the requested order: 1, 5, 3, 4, 2.
+            const requestedOrder = [
+                "images/experience-rockwell-rooftop.webp",
+                "images/experience-rockwell-intern-group.webp",
+                "images/experience-rockwell-office.webp",
+                "images/experience-rockwell-presentation.webp",
+                "images/experience-rockwell-group.webp"
+            ];
+
+            requestedOrder.forEach(src => {
+                const image = rockwellStage.querySelector(`img[src="${src}"]`);
+                const figure = image?.closest(".experience-slide");
+                if (figure) rockwellStage.appendChild(figure);
+            });
+
+            rockwellStage.querySelectorAll(".experience-slide").forEach((slide, index) => {
+                slide.classList.toggle("is-active", index === 0);
             });
         }
     }
