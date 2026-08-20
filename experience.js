@@ -69,6 +69,9 @@
             details.hidden = true;
             details.style.height = "0px";
             details.style.opacity = "0";
+            details.style.transition = prefersReducedMotion
+                ? "none"
+                : "height 440ms cubic-bezier(0.22, 1, 0.36, 1), opacity 300ms ease";
 
             button.addEventListener("click", () => {
                 const shouldOpen = !card.classList.contains("is-open");
@@ -94,7 +97,7 @@
             if (slides.length < 2 || !previous || !next || !progress) return;
 
             let currentIndex = 0;
-            const dots = slides.map((_, index) => {
+            const dots = slides.map(() => {
                 const dot = document.createElement("span");
                 dot.className = "experience-gallery-dot";
                 dot.setAttribute("aria-hidden", "true");
