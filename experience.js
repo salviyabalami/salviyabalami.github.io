@@ -277,4 +277,8 @@
     initAccordions();
     initExperienceGalleries();
     initExperienceMotion();
+
+    import("./project-interactive.js").catch(error => {
+        console.error("Could not load project interactions", error);
+    });
 })();
