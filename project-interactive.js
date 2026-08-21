@@ -42,11 +42,27 @@
     };
 
     function ensureStyles() {
-        if (document.querySelector('link[href="project-interactive.css"]')) return;
-        const link = document.createElement("link");
-        link.rel = "stylesheet";
-        link.href = "project-interactive.css";
-        document.head.appendChild(link);
+        if (!document.querySelector('link[href="project-interactive.css"]')) {
+            const link = document.createElement("link");
+            link.rel = "stylesheet";
+            link.href = "project-interactive.css";
+            document.head.appendChild(link);
+        }
+
+        if (!document.querySelector('link[href="site-effects.css"]')) {
+            const effectsLink = document.createElement("link");
+            effectsLink.rel = "stylesheet";
+            effectsLink.href = "site-effects.css";
+            document.head.appendChild(effectsLink);
+        }
+    }
+
+    function ensureSiteEffects() {
+        if (document.querySelector('script[src="site-effects.js"]')) return;
+        const script = document.createElement("script");
+        script.src = "site-effects.js";
+        script.defer = true;
+        document.head.appendChild(script);
     }
 
     function setFocusedNode(system, nodeElements, lineElements, index) {
@@ -219,10 +235,32 @@
         }, { once: true });
     }
 
-    function addCollaborationControl(card) {
+    function addCollaborationControl(card, projectType) {
         const copy = card.querySelector(".project-copy");
         const tagList = copy?.querySelector(".tag-list");
         if (!copy || copy.querySelector(".project-collab")) return;
+
+        const collaborators = [
+            {
+                name: "Chase Williamson",
+                url: "https://www.linkedin.com/in/charles-williamson-1748b7310/"
+            },
+            {
+                name: "Stuart Florescu",
+                url: "https://www.linkedin.com/in/stuartflorescu/"
+            }
+        ];
+
+        if (projectType === "music") {
+            collaborators.push({
+                name: "Dagemawi Getachew",
+                url: "https://www.linkedin.com/in/dagemawigetachew/"
+            });
+        }
+
+        const collaboratorLinks = collaborators
+            .map(person => `<a href="${person.url}" target="_blank" rel="noreferrer">${person.name} <span>↗</span></a>`)
+            .join("");
 
         const widget = document.createElement("div");
         widget.className = "project-collab";
@@ -233,8 +271,7 @@
             </button>
             <div class="project-collab-panel" aria-hidden="true">
                 <span>Collaborated with:</span>
-                <a href="https://www.linkedin.com/in/charles-williamson-1748b7310/" target="_blank" rel="noreferrer">Chase Williamson <span>↗</span></a>
-                <a href="https://www.linkedin.com/in/stuartflorescu/" target="_blank" rel="noreferrer">Stuart Florescu <span>↗</span></a>
+                ${collaboratorLinks}
             </div>
         `;
 
@@ -276,15 +313,17 @@
 
     function initProjects() {
         ensureStyles();
+        ensureSiteEffects();
 
         const cards = Array.from(document.querySelectorAll("#projects .project-card"));
         cards.forEach(card => {
             const title = card.querySelector(".project-copy h3")?.textContent.toLowerCase() ?? "";
-            const config = title.includes("x-ray") ? projectConfigs.xray
-                : title.includes("music popularity") ? projectConfigs.music
+            const projectType = title.includes("x-ray") ? "xray"
+                : title.includes("music popularity") ? "music"
                 : null;
+            const config = projectType ? projectConfigs[projectType] : null;
             if (config) buildProjectSystem(card, config);
-            addCollaborationControl(card);
+            addCollaborationControl(card, projectType);
         });
     }
 
