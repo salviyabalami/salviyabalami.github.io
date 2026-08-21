@@ -7,9 +7,7 @@
         const toggle = document.querySelector(".menu-toggle");
         const links = document.querySelector(".nav-links");
 
-        if (!toggle || !links) {
-            return;
-        }
+        if (!toggle || !links) return;
 
         function closeMenu() {
             toggle.classList.remove("is-open");
@@ -25,14 +23,9 @@
             toggle.setAttribute("aria-label", isOpen ? "Close navigation" : "Open navigation");
         });
 
-        links.querySelectorAll("a").forEach(link => {
-            link.addEventListener("click", closeMenu);
-        });
-
+        links.querySelectorAll("a").forEach(link => link.addEventListener("click", closeMenu));
         window.addEventListener("resize", () => {
-            if (window.innerWidth > 760) {
-                closeMenu();
-            }
+            if (window.innerWidth > 760) closeMenu();
         });
     }
 
@@ -61,10 +54,7 @@
 
     function initScrollProgress() {
         const progress = document.querySelector(".scroll-progress");
-
-        if (!progress) {
-            return;
-        }
+        if (!progress) return;
 
         function updateProgress() {
             const scrollable = document.documentElement.scrollHeight - window.innerHeight;
@@ -80,26 +70,17 @@
     function initActiveNavigation() {
         const sectionIds = ["about", "experience", "projects", "contact"];
         const links = Array.from(document.querySelectorAll('.nav-links a[href^="#"]'));
-        const sections = sectionIds
-            .map(id => document.getElementById(id))
-            .filter(Boolean);
+        const sections = sectionIds.map(id => document.getElementById(id)).filter(Boolean);
 
-        if (!sections.length || !links.length || !("IntersectionObserver" in window)) {
-            return;
-        }
+        if (!sections.length || !links.length || !("IntersectionObserver" in window)) return;
 
-        const linkById = new Map(
-            links.map(link => [link.getAttribute("href").slice(1), link])
-        );
-
+        const linkById = new Map(links.map(link => [link.getAttribute("href").slice(1), link]));
         const observer = new IntersectionObserver(entries => {
             const visible = entries
                 .filter(entry => entry.isIntersecting)
                 .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
 
-            if (!visible.length) {
-                return;
-            }
+            if (!visible.length) return;
 
             links.forEach(link => link.classList.remove("is-active"));
             linkById.get(visible[0].target.id)?.classList.add("is-active");
@@ -113,19 +94,14 @@
 
     function initCarousel() {
         const carousel = document.querySelector(".carousel");
-
-        if (!carousel) {
-            return;
-        }
+        if (!carousel) return;
 
         const slides = Array.from(carousel.querySelectorAll(".carousel-slide"));
         const dotsContainer = carousel.querySelector(".carousel-dots");
         const previous = carousel.querySelector(".carousel-prev");
         const next = carousel.querySelector(".carousel-next");
 
-        if (slides.length < 2 || !dotsContainer || !previous || !next) {
-            return;
-        }
+        if (slides.length < 2 || !dotsContainer || !previous || !next) return;
 
         let currentIndex = 0;
         let autoplayId = null;
@@ -145,13 +121,11 @@
 
         function showSlide(index) {
             currentIndex = (index + slides.length) % slides.length;
-
             slides.forEach((slide, slideIndex) => {
                 const isActive = slideIndex === currentIndex;
                 slide.classList.toggle("is-active", isActive);
                 slide.setAttribute("aria-hidden", String(!isActive));
             });
-
             dots.forEach((dot, dotIndex) => {
                 const isActive = dotIndex === currentIndex;
                 dot.classList.toggle("is-active", isActive);
@@ -167,14 +141,9 @@
         }
 
         function startAutoplay() {
-            if (prefersReducedMotion || document.hidden) {
-                return;
-            }
-
+            if (prefersReducedMotion || document.hidden) return;
             stopAutoplay();
-            autoplayId = window.setInterval(() => {
-                showSlide(currentIndex + 1);
-            }, 5200);
+            autoplayId = window.setInterval(() => showSlide(currentIndex + 1), 5200);
         }
 
         function restartAutoplay() {
@@ -186,7 +155,6 @@
             showSlide(currentIndex - 1);
             restartAutoplay();
         });
-
         next.addEventListener("click", () => {
             showSlide(currentIndex + 1);
             restartAutoplay();
@@ -198,31 +166,19 @@
         carousel.addEventListener("focusout", startAutoplay);
 
         document.addEventListener("visibilitychange", () => {
-            if (document.hidden) {
-                stopAutoplay();
-            } else {
-                startAutoplay();
-            }
+            if (document.hidden) stopAutoplay();
+            else startAutoplay();
         });
 
         let touchStartX = null;
-
         carousel.addEventListener("touchstart", event => {
             touchStartX = event.changedTouches[0].clientX;
         }, { passive: true });
-
         carousel.addEventListener("touchend", event => {
-            if (touchStartX === null) {
-                return;
-            }
-
+            if (touchStartX === null) return;
             const distance = event.changedTouches[0].clientX - touchStartX;
             touchStartX = null;
-
-            if (Math.abs(distance) < 45) {
-                return;
-            }
-
+            if (Math.abs(distance) < 45) return;
             showSlide(currentIndex + (distance < 0 ? 1 : -1));
             restartAutoplay();
         }, { passive: true });
@@ -232,9 +188,7 @@
     }
 
     function initProjectParallax() {
-        if (prefersReducedMotion || !window.matchMedia("(pointer: fine)").matches) {
-            return;
-        }
+        if (prefersReducedMotion || !window.matchMedia("(pointer: fine)").matches) return;
 
         document.querySelectorAll(".project-card").forEach(card => {
             card.addEventListener("mousemove", event => {
@@ -244,12 +198,19 @@
                 card.style.setProperty("--mouse-x", `${x * 10}px`);
                 card.style.setProperty("--mouse-y", `${y * 10}px`);
             });
-
             card.addEventListener("mouseleave", () => {
                 card.style.removeProperty("--mouse-x");
                 card.style.removeProperty("--mouse-y");
             });
         });
+    }
+
+    function loadProjectInteractions() {
+        if (!document.getElementById("projects") || document.querySelector('script[src="project-interactive.js"]')) return;
+        const script = document.createElement("script");
+        script.src = "project-interactive.js";
+        script.defer = true;
+        document.body.appendChild(script);
     }
 
     function init() {
@@ -259,6 +220,7 @@
         initActiveNavigation();
         initCarousel();
         initProjectParallax();
+        loadProjectInteractions();
     }
 
     init();
