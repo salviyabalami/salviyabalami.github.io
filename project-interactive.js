@@ -7,13 +7,13 @@
         xray: {
             label: "Animated architecture for the chest X-ray classification project",
             nodes: [
-                { label: "CLAHE", x: 14, y: 24, ampX: 1.8, ampY: 2.2, phase: 0.4 },
-                { label: "Transfer Learning", x: 19, y: 72, ampX: 2.0, ampY: 1.5, phase: 1.7, muted: true },
-                { label: "DenseNet121", x: 45, y: 24, ampX: 2.2, ampY: 1.7, phase: 2.7, primary: true },
-                { label: "ResNet50", x: 45, y: 66, ampX: 1.8, ampY: 2.0, phase: 4.0, primary: true },
-                { label: "Weighted Ensemble", x: 72, y: 43, ampX: 1.6, ampY: 1.9, phase: 5.2, primary: true },
-                { label: "Multi-label Output", x: 84, y: 72, ampX: 1.4, ampY: 1.6, phase: 3.2 },
-                { label: "AUC · F1 · Recall", x: 72, y: 16, ampX: 1.5, ampY: 1.3, phase: 6.0, muted: true }
+                { label: "CLAHE", x: 14, y: 24, mx: 18, my: 18, ampX: 1.8, ampY: 2.2, phase: 0.4 },
+                { label: "Transfer Learning", x: 19, y: 72, mx: 50, my: 17, ampX: 2.0, ampY: 1.5, phase: 1.7, muted: true },
+                { label: "DenseNet121", x: 45, y: 24, mx: 24, my: 45, ampX: 2.2, ampY: 1.7, phase: 2.7, primary: true },
+                { label: "ResNet50", x: 45, y: 66, mx: 60, my: 45, ampX: 1.8, ampY: 2.0, phase: 4.0, primary: true },
+                { label: "Weighted Ensemble", x: 72, y: 43, mx: 48, my: 70, ampX: 1.6, ampY: 1.9, phase: 5.2, primary: true },
+                { label: "Multi-label Output", x: 84, y: 72, mx: 80, my: 72, ampX: 1.4, ampY: 1.6, phase: 3.2 },
+                { label: "AUC · F1 · Recall", x: 72, y: 16, mx: 82, my: 18, ampX: 1.5, ampY: 1.3, phase: 6.0, muted: true }
             ],
             edges: [[0, 2], [0, 3], [1, 2], [1, 3], [2, 4], [3, 4], [4, 5], [4, 6]]
         },
@@ -21,15 +21,15 @@
             label: "Animated architecture for the music popularity ensemble project",
             metric: { value: "0.8375", label: "OOF AUC" },
             nodes: [
-                { label: "Feature Engineering", x: 15, y: 18, ampX: 1.6, ampY: 1.8, phase: 0.4 },
-                { label: "Grid Search", x: 15, y: 48, ampX: 1.8, ampY: 1.4, phase: 1.5, muted: true },
-                { label: "Gradient Boosting", x: 16, y: 79, ampX: 1.7, ampY: 1.5, phase: 2.8, muted: true },
-                { label: "XGBoost", x: 43, y: 18, ampX: 2.0, ampY: 1.7, phase: 3.9, primary: true },
-                { label: "LightGBM", x: 43, y: 48, ampX: 1.7, ampY: 2.0, phase: 5.1, primary: true },
-                { label: "CatBoost", x: 43, y: 78, ampX: 1.9, ampY: 1.6, phase: 6.0, primary: true },
-                { label: "Meta Learner", x: 73, y: 45, ampX: 1.7, ampY: 1.8, phase: 2.0, primary: true },
-                { label: "Stratified CV", x: 74, y: 16, ampX: 1.5, ampY: 1.4, phase: 4.7, muted: true },
-                { label: "Class Balancing", x: 74, y: 76, ampX: 1.4, ampY: 1.7, phase: 5.7, muted: true }
+                { label: "Feature Engineering", x: 15, y: 18, mx: 18, my: 16, ampX: 1.6, ampY: 1.8, phase: 0.4 },
+                { label: "Grid Search", x: 15, y: 48, mx: 50, my: 14, ampX: 1.8, ampY: 1.4, phase: 1.5, muted: true },
+                { label: "Gradient Boosting", x: 16, y: 79, mx: 82, my: 16, ampX: 1.7, ampY: 1.5, phase: 2.8, muted: true },
+                { label: "XGBoost", x: 43, y: 18, mx: 22, my: 42, ampX: 2.0, ampY: 1.7, phase: 3.9, primary: true },
+                { label: "LightGBM", x: 43, y: 48, mx: 50, my: 42, ampX: 1.7, ampY: 2.0, phase: 5.1, primary: true },
+                { label: "CatBoost", x: 43, y: 78, mx: 78, my: 42, ampX: 1.9, ampY: 1.6, phase: 6.0, primary: true },
+                { label: "Meta Learner", x: 73, y: 45, mx: 50, my: 68, ampX: 1.7, ampY: 1.8, phase: 2.0, primary: true },
+                { label: "Stratified CV", x: 74, y: 16, mx: 20, my: 70, ampX: 1.5, ampY: 1.4, phase: 4.7, muted: true },
+                { label: "Class Balancing", x: 74, y: 76, mx: 80, my: 70, ampX: 1.4, ampY: 1.7, phase: 5.7, muted: true }
             ],
             edges: [
                 [0, 3], [0, 4], [0, 5],
@@ -124,14 +124,27 @@
         let animationFrame = null;
         let cycleTimer = null;
 
+        function getLayoutState() {
+            const width = window.innerWidth;
+            return {
+                mobile: width <= 620,
+                amplitude: width <= 620 ? 0.34 : width <= 860 ? 0.62 : 1
+            };
+        }
+
         function render(time = 0) {
             const seconds = time / 1000;
+            const layout = getLayoutState();
             const positions = config.nodes.map((node, index) => {
                 const phase = node.phase ?? index;
-                if (prefersReducedMotion) return { x: node.x, y: node.y };
+                const baseX = layout.mobile && Number.isFinite(node.mx) ? node.mx : node.x;
+                const baseY = layout.mobile && Number.isFinite(node.my) ? node.my : node.y;
+
+                if (prefersReducedMotion) return { x: baseX, y: baseY };
+
                 return {
-                    x: node.x + Math.sin(seconds * 0.62 + phase) * (node.ampX ?? 1.5),
-                    y: node.y + Math.cos(seconds * 0.54 + phase * 1.13) * (node.ampY ?? 1.5)
+                    x: baseX + Math.sin(seconds * 0.58 + phase) * (node.ampX ?? 1.5) * layout.amplitude,
+                    y: baseY + Math.cos(seconds * 0.5 + phase * 1.13) * (node.ampY ?? 1.5) * layout.amplitude
                 };
             });
 
@@ -180,21 +193,25 @@
         render(0);
         setFocusedNode(system, nodeElements, lineElements, cycleIndex);
 
-        if (!prefersReducedMotion) {
-            cycleTimer = window.setInterval(cycleFocus, 2400);
+        if (!prefersReducedMotion) cycleTimer = window.setInterval(cycleFocus, 2700);
+
+        if ("IntersectionObserver" in window) {
+            const sectionObserver = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (!entry.isIntersecting) {
+                        if (animationFrame !== null) cancelAnimationFrame(animationFrame);
+                        animationFrame = null;
+                        return;
+                    }
+                    if (!prefersReducedMotion && animationFrame === null) animationFrame = requestAnimationFrame(render);
+                });
+            }, { threshold: 0.02 });
+            sectionObserver.observe(visual);
         }
 
-        const sectionObserver = new IntersectionObserver(entries => {
-            entries.forEach(entry => {
-                if (!entry.isIntersecting) {
-                    if (animationFrame !== null) cancelAnimationFrame(animationFrame);
-                    animationFrame = null;
-                    return;
-                }
-                if (!prefersReducedMotion && animationFrame === null) animationFrame = requestAnimationFrame(render);
-            });
-        }, { threshold: 0.02 });
-        sectionObserver.observe(visual);
+        window.addEventListener("resize", () => {
+            if (prefersReducedMotion) render(0);
+        }, { passive: true });
 
         window.addEventListener("pagehide", () => {
             if (animationFrame !== null) cancelAnimationFrame(animationFrame);
