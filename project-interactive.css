@@ -253,7 +253,27 @@
     transform: translate(2px, -2px);
 }
 
-@media (max-width: 860px) {
+@media (max-width: 900px) {
+    #projects .project-card,
+    #projects .project-card.project-card-reverse {
+        grid-template-columns: 1fr;
+        min-height: 0;
+    }
+
+    #projects .project-card .project-visual,
+    #projects .project-card.project-card-reverse .project-visual {
+        order: 0;
+        min-height: 430px;
+        border-right: 0;
+        border-left: 0;
+        border-bottom: 1px solid var(--line);
+    }
+
+    #projects .project-card .project-copy,
+    #projects .project-card.project-card-reverse .project-copy {
+        order: 1;
+    }
+
     .project-system-node {
         min-width: 78px;
         max-width: 124px;
@@ -267,18 +287,120 @@
 }
 
 @media (max-width: 620px) {
+    #projects .project-list {
+        gap: 18px;
+    }
+
+    #projects .project-card,
+    #projects .project-card.project-card-reverse {
+        border-radius: 22px;
+    }
+
+    #projects .project-card .project-visual,
+    #projects .project-card.project-card-reverse .project-visual {
+        min-height: 390px;
+    }
+
+    #projects .project-copy {
+        padding: 28px 22px 30px;
+    }
+
+    #projects .project-number {
+        margin-bottom: 24px;
+    }
+
+    .project-system::before {
+        background-size: 40px 40px;
+    }
+
     .project-system-node {
-        min-width: 70px;
-        max-width: 105px;
+        min-width: 62px;
+        max-width: 92px;
     }
 
     .project-system-node-inner {
-        font-size: 0.53rem;
+        min-height: 38px;
+        padding: 7px 8px;
+        border-radius: 10px;
+        font-size: 0.49rem;
+        line-height: 1.18;
+        transform: scale(0.94);
+    }
+
+    .project-system-node.is-muted .project-system-node-inner {
+        min-height: 35px;
+        padding: 7px 7px;
+        font-size: 0.46rem;
+    }
+
+    .project-system-node.is-focus .project-system-node-inner,
+    .project-system-node:hover .project-system-node-inner,
+    .project-system-node:focus-within .project-system-node-inner {
+        transform: scale(1.06);
+    }
+
+    .project-system-link {
+        stroke-width: 0.9;
+        opacity: 0.72;
+    }
+
+    .project-system-link.is-focus {
+        stroke-width: 1.45;
+        opacity: 1;
     }
 
     .project-system-metric {
-        right: 14px;
-        bottom: 14px;
+        right: 12px;
+        bottom: 12px;
+        gap: 5px;
+        padding: 8px 10px;
+        font-size: 0.82rem;
+    }
+
+    .project-system-metric span {
+        font-size: 0.48rem;
+    }
+
+    .project-collab {
+        width: 100%;
+        margin-top: 20px;
+    }
+
+    .project-team-toggle {
+        width: 100%;
+        justify-content: center;
+        min-height: 44px;
+    }
+
+    .project-collab-panel {
+        left: 0;
+        right: 0;
+        bottom: calc(100% + 8px);
+        width: 100%;
+        padding: 15px 16px;
+        transform-origin: bottom center;
+    }
+
+    .project-collab-panel a {
+        min-height: 44px;
+        font-size: 0.86rem;
+    }
+}
+
+@media (max-width: 390px) {
+    #projects .project-card .project-visual,
+    #projects .project-card.project-card-reverse .project-visual {
+        min-height: 365px;
+    }
+
+    .project-system-node {
+        min-width: 58px;
+        max-width: 84px;
+    }
+
+    .project-system-node-inner {
+        padding-inline: 6px;
+        font-size: 0.45rem;
     }
 }
 
