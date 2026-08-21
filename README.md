@@ -1,49 +1,80 @@
-# 🧑‍💻 Salviya Balami — Portfolio
+# Salviya Balami — Portfolio
 
-Welcome to the personal portfolio of **Salviya Balami**, a Caltech CS + BEM student passionate about machine learning, robotics, and full-stack development.
+Personal portfolio for **Salviya Balami**, a Computer Science student at Caltech.
 
-🔗 **Live Site:** (https://salviyabalami.github.io)
+**Live site:** https://salviyabalami.github.io
 
----
+## Overview
 
-## 📁 Overview
+The site is a single-page portfolio focused on concise, interactive storytelling rather than separate content tabs. It includes:
 
-This portfolio highlights:
+- an identity-first landing section with contact links
+- an About section with a responsive photo carousel
+- an expandable experience timeline for Rockwell Automation, the University of Minnesota RPM Lab, and Jane Street FOCUS
+- animated project architecture diagrams for machine-learning projects
+- collaborator credits with LinkedIn links
+- responsive mobile layouts
+- scroll reveal animations, a custom desktop cursor, and a minimal particle background
 
-- 💡 Technical projects (e.g. Triviatron, Baseline Threads, game dev in C/SDL)
-- 📜 Research (robotic manipulation, imitation learning)
-- 🛠 Skills in Python, C, JavaScript, Node.js, web dev, and ML
-- 🏀 Extracurriculars including basketball, NSBE, ColorStack, and more
-- 📫 Contact information and resume
+## Tech stack
 
----
+- HTML5
+- CSS3
+- Vanilla JavaScript
+- GitHub Pages
 
-## ⚙️ Tech Stack
+No frontend framework or build step is required.
 
-- **Frontend:** HTML, CSS, JavaScript
-- **Frameworks/Libraries:** Vanilla JS, no frameworks for optimal loading speed
-- **Deployment:** GitHub Pages  
-- **Assets:** Responsive layout and interactive sections built from scratch
+## Project structure
 
----
+```text
+.
+├── index.html                 # Single-page site markup
+├── styles.css                 # Shared/base styling
+├── rework.css                 # Main layout and redesign styling
+├── landing-about.css          # Landing and About-specific styling
+├── experience.css             # Experience timeline and expandable cards
+├── project-interactive.css    # Animated project diagrams and team panels
+├── site-effects.css           # Cursor and particle effects
+├── index.js                   # Navigation, carousel, and shared interactions
+├── landing-about.js           # Landing/About motion and email interactions
+├── experience.js              # Experience accordion and image sliders
+├── project-interactive.js     # Project architecture animations and collaborators
+├── site-effects.js            # Cursor and particle background behavior
+└── images/                    # Production image assets used by the live site
+```
 
-## 🚀 Features
+The code is intentionally split by feature instead of bundled into one large stylesheet or script so each interaction remains easy to find and maintain.
 
-- Mobile-first responsive design
-- Tabbed sections for Education, Projects, Research, and Activities
-- Toggle-based navigation to minimize clutter
-- Optimized CSS for performance and clarity
+## Run locally
 
----
+From the repository root:
 
-## 🙌 Acknowledgments
+### Windows
 
-This portfolio is an ongoing personal project — feedback and suggestions are welcome.  
-Built with care to reflect both technical depth and design creativity.
+```powershell
+py -m http.server 8000
+```
 
----
+### macOS / Linux
 
-## 🧠 Author
+```bash
+python3 -m http.server 8000
+```
+
+Then open:
+
+```text
+http://localhost:8000
+```
+
+## Deployment
+
+The site is hosted with GitHub Pages. Changes merged into `main` are deployed to:
+
+https://salviyabalami.github.io
+
+## Author
 
 **Salviya Balami**  
-[Caltech | CS + BEM | Class of 2028](https://salviyabalami.github.io)
+Computer Science, California Institute of Technology
